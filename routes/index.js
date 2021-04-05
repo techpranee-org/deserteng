@@ -1,9 +1,27 @@
 var express = require('express');
 var router = express.Router();
+var MachineList = require('../data/machinelist.json');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
 	res.render('index', { title: 'Express' });
+});
+router.get('/contact', function (req, res, next) {
+	res.render('contact', { title: 'Express' });
+});
+router.get('/about', function (req, res, next) {
+	res.render('about', { title: 'Express' });
+});
+router.get('/machines', function (req, res, next) {
+	res.render('machines', { title: 'Express' });
+});
+router.get('/awards', function (req, res, next) {
+	res.render('awards', { title: 'Express' });
+});
+
+router.get('/machines1', function (req, res, next) {
+	res.render('machinesP1', { mlist: MachineList });
+	// res.render('machinesP1', { title: 'Express' });
 });
 
 router.post('/contactus', async (req, res, next) => {
