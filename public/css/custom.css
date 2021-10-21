@@ -37,6 +37,12 @@
   width: 100%;
   height: 250px;
 }
+.img-fluid1 {
+  margin: auto;
+  max-width: 100%;
+  width: auto;
+  max-height: 100%;
+}
 
 @media (max-width: 766px) {
   .img-changes {
@@ -46,4 +52,8 @@
 }
 .text-change {
   height: 200px;
+}
+.imgcont {
+  height: 300px;
+  text-align: center;
 }
