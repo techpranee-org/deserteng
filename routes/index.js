@@ -21,6 +21,9 @@ router.get('/awards', function (req, res, next) {
 router.get('/careers', function (req, res, next) {
 	res.render('careers', { title: 'Express' });
 });
+router.get('/purchase-order', function (req, res, next) {
+	res.render('purchaseorder', { title: 'Express' });
+});
 
 router.get('/machines1', function (req, res, next) {
 	res.render('machinesP1', { mlist: MachineList });
