@@ -281,6 +281,9 @@ a:hover {
   font-weight: 200;
   color: #000;
 }
+.site-logo a{
+ margin-left: 6%; 
+}
 .site-navbar .site-navigation .site-menu {
   margin-bottom: 0;
 }
@@ -817,6 +820,11 @@ a:hover {
   .site-block-half .image {
     margin-bottom: 50px;
   }
+  .site-block-half iframe{
+    margin: 1rem;
+    width: 90%;
+    height: 60%;
+  }
 }
 
 .site-block-half .text {
@@ -830,7 +838,12 @@ a:hover {
 }
 @media (min-width: 1200px) {
   .site-block-half .text {
-    padding: 8rem;
+    padding: 6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .site-block-half .image {
+    padding: 6rem 3rem;
   }
 }
 
