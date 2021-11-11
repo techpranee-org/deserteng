@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-left: 80px;
 }
 .site-logo img {
   height: 90px;
@@ -19,16 +20,16 @@
 
 @media (max-width: 996px) {
   .site-logo a {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: 600px) {
-  .site-logo img {
+  /* .site-logo img {
     display: none;
-  }
+  } */
   .site-logo a {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
