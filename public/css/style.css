@@ -301,7 +301,7 @@ a:hover {
 }
 .site-navbar .site-navigation .site-menu > li > a {
   padding: 10px 10px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 0.05em;
   color: rgba(0, 0, 0, 0.6);
   font-size: 15px;
@@ -461,7 +461,7 @@ a:hover {
   color: #f23a2e;
 }
 .site-navbar .site-navigation .site-menu .has-children a {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .site-navbar .site-navigation .site-menu .has-children:hover > a,
 .site-navbar .site-navigation .site-menu .has-children:focus > a,
