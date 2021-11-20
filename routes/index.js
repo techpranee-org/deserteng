@@ -8,7 +8,7 @@ var fs = require("fs");
 var path = require("path");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-
+console.log = () => { };
 // router.use(formidable());
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -45,8 +45,8 @@ router.post('/contactus', async (req, res, next) => {
 		let { fname, email, company, message } = req.body;
 		console.log(fname, email, company, message);
 		const msg = {
-			to: 'rajulapudip@gmail.com',
-			// to: 'cs@desertengrg.com',
+			// to: 'rajulapudip@gmail.com',
+			to: 'cs@desertengrg.com',
 			from: 'praneeth@techpranee.com',
 			subject: `${fname} from company ${company} email : ${email} sent a message`,
 			text: `${message}`,
@@ -87,8 +87,8 @@ router.post('/applynow', (req, res, next) => {
 				var oldPath = files.resume.filepath;
 				let attachment = fs.readFileSync(oldPath).toString("base64");
 				const msg = {
-					to: 'rajulapudip@gmail.com',
-					// to: 'cs@desertengrg.com',
+					// to: 'rajulapudip@gmail.com',
+					to: 'cs@desertengrg.com',
 					from: 'praneeth@techpranee.com',
 					subject: `${fname, " ", lname} applied for : ${position} position`,
 					text: `${fname, " ", lname} with email : ${email} has applied for : ${position} position.Phone : ${phone} `,
