@@ -5,6 +5,44 @@
 		<div class="site-wrap">
 			<%- include('partials/nav.ejs') %>
 			<!--  -->
+			<% if (alert === true) { %>
+				<script
+				type="text/javascript"
+				src="https://cdn.jsdelivr.net/npm/toastify-js"
+			  ></script>
+				<% if (error === true) { %>
+					<script>
+						Toastify({
+							text: "Email Could not be sent",
+							duration: 3000,
+							destination: "https://github.com/apvarun/toastify-js",
+							newWindow: true,
+							close: true,
+							gravity: "top", // `top` or `bottom`
+							position: 'center', // `left`, `center` or `right`
+							backgroundColor: "linear-gradient(to right, #EC7403, #E40D0D)",
+							stopOnFocus: true, // Prevents dismissing of toast on hover
+							onClick: function () { } // Callback after click
+						  }).showToast();
+						</script>
+				<% } else { %>
+					<script>
+						Toastify({
+							text: "Email Sent",
+							duration: 3000,
+							destination: "https://github.com/apvarun/toastify-js",
+							newWindow: true,
+							close: true,
+							gravity: "top", // `top` or `bottom`
+							position: 'center', // `left`, `center` or `right`
+							backgroundColor: "linear-gradient(to right, #0B531D, #063016)",
+							stopOnFocus: true, // Prevents dismissing of toast on hover
+							onClick: function () { } // Callback after click
+						  }).showToast();
+						</script>
+				<% } %>
+			
+			<% } %>
 			<div
 				class="site-blocks-cover inner-page overlay"
 				style="background-image: url(images/contact.jpg)"
@@ -21,9 +59,25 @@
 			</div>
 			<div class="site-section bg-light">
 				<div class="container">
+					<div
+					class="alert alert-warning alert-dismissible collapse"
+					id="formAlert"
+					role="alert"
+				  >
+					<!-- <button
+					  type="button"
+					  class="close"
+					  data-dismiss="alert"
+					  aria-label="Close"
+					>
+					  <span aria-hidden="true">&times;</span>
+					</button> -->
+				  </div>
 					<div class="row">
+
 						<div class="col-md-12 col-lg-8 mb-5">
-							<form action="#" class="p-5 bg-white">
+							<form method="post" class="p-5 bg-white" action="/contactus"
+							role="form" name="myForm" id="myForm" onsubmit="return(validate());">
 								<div class="row form-group">
 									<div class="col-md-12 mb-3 mb-md-0">
 										<label class="font-weight-bold" for="fullname"
@@ -32,8 +86,21 @@
 										<input
 											type="text"
 											id="fullname"
+											name="fname"
 											class="form-control"
 											placeholder="Full Name"
+										/>
+									</div>
+								</div>
+								<div class="row form-group">
+									<div class="col-md-12">
+										<label class="font-weight-bold" for="company">Company</label>
+										<input
+											type="text"
+											name="company"
+											id="company"
+											class="form-control"
+											placeholder="Company Name"
 										/>
 									</div>
 								</div>
@@ -42,12 +109,14 @@
 										<label class="font-weight-bold" for="email">Email</label>
 										<input
 											type="email"
+											name="email"
 											id="email"
 											class="form-control"
 											placeholder="Email Address"
 										/>
 									</div>
 								</div>
+
 
 								<div class="row form-group">
 									<div class="col-md-12">
@@ -86,9 +155,6 @@
 								<p class="mb-4"><a href="#">(520) 882-7363</a></p>
 								<p class="mb-0 font-weight-bold">Fax</p>
 								<p class="mb-4"><a href="#">(520) 623-6860</a></p>
-
-								<p class="mb-0 font-weight-bold">Email Address</p>
-								<p class="mb-0"><a href="#">youremail@domain.com</a></p>
 							</div>
 
 							<!-- <div class="p-4 mb-3 bg-white">
@@ -236,6 +302,7 @@
 
 			<%- include('partials/footer.ejs') %>
 		</div>
+		<%- include('partials/emailscripts.ejs') %>
 		<%- include('partials/scripts.ejs') %>
 	</body>
 </html>

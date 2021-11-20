@@ -1,0 +1,159 @@
+
+    <!-- <script>
+      let info = ;
+      if (info.length) {
+        Toastify({
+          text: "success",
+          duration: 2000,
+          destination: "https://github.com/apvarun/toastify-js",
+          newWindow: true,
+          close: true,
+          gravity: "bottom", // `top` or `bottom`
+          position: 'right', // `left`, `center` or `right`
+          backgroundColor: "linear-gradient(to right, #ff5821, #ff7e54)",
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          onClick: function () { } // Callback after click
+        }).showToast();
+      }
+    </script> -->
+    <script type="text/javascript">
+      function dummyJob() {
+        document
+          .getElementById("jobFormAlert")
+          .classList.remove("alert-danger");
+        document.getElementById("jobFormAlert").classList.add("alert-warning");
+        if (document.jobSearchForm.searchTerm.value == "") {
+          document.getElementById("jobFormAlert").innerHTML =
+            "<strong>Please provide proper job search term!</strong> ";
+          $("#jobFormAlert").show();
+          setTimeout(() => {
+            $("#jobFormAlert").hide();
+          }, 2000);
+          document.jobSearchForm.searchTerm.focus();
+          return false;
+        }
+        if (
+          document.jobSearchForm.location.value == "" ||
+          isNaN(document.jobSearchForm.location.value) ||
+          document.jobSearchForm.location.value.length !== 5
+        ) {
+          document.getElementById("jobFormAlert").innerHTML =
+            "<strong>Please provide a correct location pin</strong> ";
+          $("#jobFormAlert").show();
+          setTimeout(() => {
+            $("#jobFormAlert").hide();
+          }, 2000);
+          document.jobSearchForm.location.focus();
+          return false;
+        }
+        if (true) {
+          document.getElementById("jobFormAlert").innerHTML =
+            "<strong>searching....</strong> ";
+          $("#jobFormAlert").show();
+          setTimeout(() => {
+            document.getElementById("jobFormAlert").innerHTML =
+              "<strong>Sorry we cound not find any relevant Jobs !! <br> Please share your details in the form below</strong> ";
+            document
+              .getElementById("jobFormAlert")
+              .classList.remove("alert-warning");
+            document
+              .getElementById("jobFormAlert")
+              .classList.add("alert-danger");
+            setTimeout(() => {
+              $("#jobFormAlert").hide();
+            }, 4000);
+          }, 2000);
+          return false;
+        }
+        return true;
+      }
+    </script>
+    <script type="text/javascript">
+      function validate() {
+        if (document.myForm.fname.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your first name!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 2000);
+          document.myForm.fname.focus();
+          return false;
+        }
+        if (document.myForm.lname.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your last name!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 2000);
+          document.myForm.lname.focus();
+          return false;
+        }
+        if (document.myForm.email.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your email!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 2000);
+          document.myForm.email.focus();
+          return false;
+        }
+        if (document.myForm.message.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your message!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 2000);
+          document.myForm.message.focus();
+          return false;
+        }
+        if (document.myForm.company.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your company name!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 2000);
+          document.myForm.company.focus();
+          return false;
+        }
+        if (document.myForm.position.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please select the position you want to apply!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 2000);
+          document.myForm.position.focus();
+          return false;
+        }
+        if (
+          document.myForm.phone.value == "" ||
+          isNaN(document.myForm.phone.value)
+        ) {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide a contact in the format 910000000000!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 2000);
+          document.myForm.phone.focus();
+          return false;
+        }
+        if (document.myForm.resume.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please attach your resume!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 2000);
+          document.myForm.resume.focus();
+          return false;
+        }
+        console.log('done valid')
+        return true;
+      }
+    </script>
