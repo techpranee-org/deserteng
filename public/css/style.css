@@ -922,7 +922,7 @@ a:hover {
   overflow: hidden;
   position: relative;
 }
-.post-entry .image img {
+/* .post-entry .image img {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
   transition: 0.3s all ease;
@@ -936,7 +936,7 @@ a:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
-}
+} */
 
 .block-13,
 .slide-one-item {
