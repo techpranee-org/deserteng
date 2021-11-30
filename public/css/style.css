@@ -705,7 +705,7 @@ a:hover {
 
 .site-heading {
   font-weight: 300;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-size: 2rem;
 }
 @media (min-width: 768px) {
@@ -937,7 +937,10 @@ a:hover {
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 } */
-
+.post-entry .image .cmm-machine{
+  width: 100%; 
+  height: 380px;
+  }
 .block-13,
 .slide-one-item {
   position: relative;
