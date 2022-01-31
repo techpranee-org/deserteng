@@ -23,7 +23,7 @@ router.get('/about', function (req, res, next) {
 router.get('/machines', function (req, res, next) {
 	res.render('machines', { title: 'Desert Engineering' });
 });
-router.get('/awards', function (req, res, next) {
+router.get('/certifications', function (req, res, next) {
 	res.render('awards', { title: 'Desert Engineering' });
 });
 
@@ -55,12 +55,12 @@ router.post('/contactus', async (req, res, next) => {
 			.send(msg)
 			.then(() => {
 				console.log('email is sent')
-				// res.status(200).send({ msg: 'OK' });
+				res.status(200).send({ msg: 'OK' });
 				res.render('contact', { title: 'Desert Engineering', alert: true, error: false, msg: "email sent" })
 			})
 			.catch((err) => {
 				console.log(err.response.body.errors)
-				// res.status(500).send({ msg: 'failed' });
+				res.status(500).send({ msg: 'failed' });
 				res.render('contact', { title: 'Desert Engineering', alert: true, error: true, msg: "email could not be sent" })
 			});
 	} catch (error) {
@@ -105,16 +105,16 @@ router.post('/applynow', (req, res, next) => {
 					.send(msg)
 					.then(() => {
 						console.log('email is sent')
-						// res.status(200).send({ msg: 'OK' });
+						res.status(200).send({ msg: 'OK' });
 						res.render('careers', { title: 'Desert Engineering', alert: true, error: false, msg: "email sent" })
 					})
 					.catch((err) => {
 						console.log(err.response.body.errors)
-						// res.status(500).send({ msg: 'failed' });
+						res.status(500).send({ msg: 'failed' });
 						res.render('careers', { title: 'Desert Engineering', alert: true, error: true, msg: "email could not be sent" })
 					});
 			} else {
-				console.log('else bock')
+				console.log('else block')
 				res.render('careers', { title: 'Desert Engineering', alert: false, msg: "error" })
 			}
 		});

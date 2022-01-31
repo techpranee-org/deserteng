@@ -45,7 +45,9 @@ a:hover {
 .line-height-xs {
   line-height: 1;
 }
-
+.inline-block{
+  display: inline-block;
+}
 .site-wrap:before {
   -webkit-transition: 0.3s all ease-in-out;
   -o-transition: 0.3s all ease-in-out;
