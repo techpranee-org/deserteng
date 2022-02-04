@@ -55,13 +55,13 @@ router.post('/contactus', async (req, res, next) => {
 			.send(msg)
 			.then(() => {
 				console.log('email is sent')
-				res.status(200).send({ msg: 'OK' });
-				res.render('contact', { title: 'Desert Engineering', alert: true, error: false, msg: "email sent" })
+				res.status(200).render('contact', { title: 'Desert Engineering', alert: true, error: false, msg: "email sent" })
 			})
 			.catch((err) => {
 				console.log(err.response.body.errors)
-				res.status(500).send({ msg: 'failed' });
-				res.render('contact', { title: 'Desert Engineering', alert: true, error: true, msg: "email could not be sent" })
+				// res.status(500).send({ msg: 'failed' });
+				// res.render('contact', { title: 'Desert Engineering', alert: true, error: true, msg: "email could not be sent" })
+				res.status(500).render('contact', { title: 'Desert Engineering', alert: true, error: true, msg: "email could not be sent" })
 			});
 	} catch (error) {
 		next(error)
@@ -105,13 +105,11 @@ router.post('/applynow', (req, res, next) => {
 					.send(msg)
 					.then(() => {
 						console.log('email is sent')
-						res.status(200).send({ msg: 'OK' });
-						res.render('careers', { title: 'Desert Engineering', alert: true, error: false, msg: "email sent" })
+						res.status(200).render('careers', { title: 'Desert Engineering', alert: true, error: false, msg: "email sent" })
 					})
 					.catch((err) => {
 						console.log(err.response.body.errors)
-						res.status(500).send({ msg: 'failed' });
-						res.render('careers', { title: 'Desert Engineering', alert: true, error: true, msg: "email could not be sent" })
+						res.status(500).render('careers', { title: 'Desert Engineering', alert: true, error: true, msg: "email could not be sent" })
 					});
 			} else {
 				console.log('else block')
