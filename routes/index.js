@@ -7,7 +7,13 @@ var formidable = require("formidable");
 var fs = require("fs");
 var path = require("path");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
+const isvalidEmail = (email) => {
+	return String(email)
+		.toLowerCase()
+		.match(
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+		);
+};
 console.log = () => { };
 // router.use(formidable());
 /* GET home page. */
@@ -45,16 +51,27 @@ router.post('/contactus', async (req, res, next) => {
 		let { fname, email, company, message } = req.body;
 		console.log(fname, email, company, message);
 		const msg = {
-			// to: 'rajulapudip@gmail.com',
-			to: 'cs@desertengrg.com',
-			from: 'praneeth@techpranee.com',
+			to: process.env.ADMIN_EMAIL_ADDRESS,
+			from: process.env.SENDER_EMAIL_ADDRESS,
 			subject: `${fname} from company ${company} email : ${email} sent a message`,
 			text: `${message}`,
 		};
+		if (isvalidEmail(email)) {
+			console.log("valid email")
+			const msg2 = {
+				to: email,
+				from: process.env.SENDER_EMAIL_ADDRESS,
+				subject: "We got your enquiry ! Desert Engineering Group Inc.",
+				text: `Thanks for contacting, we will get back to you soon. `,
+			};
+			sgMail.send(msg2)
+		}
+
 		sgMail
 			.send(msg)
 			.then(() => {
 				console.log('email is sent')
+
 				res.status(200).render('contact', { title: 'Desert Engineering', alert: true, error: false, msg: "email sent" })
 			})
 			.catch((err) => {
