@@ -7,14 +7,11 @@ var formidable = require("formidable");
 var fs = require("fs");
 var path = require("path");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 const isvalidEmail = (email) => {
-	return String(email)
-		.toLowerCase()
-		.match(
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-		);
-};
-console.log = () => { };
+	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return re.test(email);
+}
 // router.use(formidable());
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -56,8 +53,8 @@ router.post('/contactus', async (req, res, next) => {
 			subject: `${fname} from company ${company} email : ${email} sent a message`,
 			text: `${message}`,
 		};
+		console.log("valid email :", isvalidEmail(email))
 		if (isvalidEmail(email)) {
-			console.log("valid email")
 			const msg2 = {
 				to: email,
 				from: process.env.SENDER_EMAIL_ADDRESS,
