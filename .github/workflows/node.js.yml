@@ -1,4 +1,4 @@
-name: CI-CD Bestmom AWS Server
+name: CI-CD Techpranee AWS Server
 
 on:
   workflow_dispatch:
