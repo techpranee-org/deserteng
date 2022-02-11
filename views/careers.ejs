@@ -193,7 +193,7 @@
 								</button> -->
 							  </div>
 								<form method="post" class="p-5 bg-white" enctype="multipart/form-data" action="/applynow"
-									role="form" name="myForm" id="myForm" onsubmit="return(validate());">
+									role="form" name="myForm" id="myForm" onsubmit="return(validateCareersForm());">
 									<label class="font-weight-bold" for="company">Full Name</label>
 									<div class="row form-group">
 
@@ -260,6 +260,11 @@
 
 									<div class="row form-group">
 										<div class="col-md-12">
+											<div class="g-recaptcha" data-sitekey="6LcziD4eAAAAAFT-PBPgmlJuNjlSX3FJUe7Dnpw_"></div>	
+										</div>
+									</div>
+									<div class="row form-group">
+										<div class="col-md-12">
 											<input type="submit"  value="Send" class="btn btn-primary submit-btn" />
 										</div>
 									</div>
@@ -310,6 +315,8 @@
 				</div>
 				<%- include('partials/footer.ejs') %>
 		</div>
+		<!-- recaptcha v2 -->
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<%- include('partials/emailscripts.ejs') %>
 		<%- include('partials/scripts.ejs') %>
 	</body>
