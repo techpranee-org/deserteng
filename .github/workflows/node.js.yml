@@ -1,0 +1,21 @@
+name: CI-CD Bestmom AWS Server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: SSH and deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          cd ~/deserteng
+          gut stash
+          git pull origin master
+          npm install
+          pm2 restart desert
