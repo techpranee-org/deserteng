@@ -18,4 +18,4 @@ jobs:
           gut stash
           git pull origin master
           npm install
-          pm2 restart desert
+          pm2 restart deserteng
