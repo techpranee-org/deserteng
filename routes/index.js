@@ -53,16 +53,15 @@ router.post('/contactus', async (req, res, next) => {
 			subject: `${fname} from company ${company} email : ${email} sent a message`,
 			text: `${message}`,
 		};
-		console.log("valid email :", isvalidEmail(email))
-		if (isvalidEmail(email)) {
-			const msg2 = {
-				to: email,
-				from: process.env.SENDER_EMAIL_ADDRESS,
-				subject: "We got your enquiry ! Desert Engineering Group Inc.",
-				text: `Thanks for contacting, we will get back to you soon. `,
-			};
-			sgMail.send(msg2)
-		}
+		// if (isvalidEmail(email)) {
+		// 	const msg2 = {
+		// 		to: email,
+		// 		from: process.env.SENDER_EMAIL_ADDRESS,
+		// 		subject: "We got your enquiry ! Desert Engineering Group Inc.",
+		// 		text: `Thanks for contacting, we will get back to you soon. `,
+		// 	};
+		// 	sgMail.send(msg2)
+		// }
 
 		sgMail
 			.send(msg)
@@ -95,15 +94,12 @@ router.post('/applynow', (req, res, next) => {
 				return next(error)
 			}
 			let { fname, lname, email, phone, position } = fields;
-			console.log(fname, lname, email, phone, position);
-			console.log(files.resume);
 			if (files.resume.filepath) {
 				var oldPath = files.resume.filepath;
 				let attachment = fs.readFileSync(oldPath).toString("base64");
 				const msg = {
-					// to: 'rajulapudip@gmail.com',
-					to: 'cs@desertengrg.com',
-					from: 'praneeth@techpranee.com',
+					to: process.env.ADMIN_EMAIL_ADDRESS,
+					from: process.env.SENDER_EMAIL_ADDRESS,
 					subject: `${fname, " ", lname} applied for : ${position} position`,
 					text: `${fname, " ", lname} with email : ${email} has applied for : ${position} position.Phone : ${phone} `,
 					attachments: [
@@ -118,15 +114,12 @@ router.post('/applynow', (req, res, next) => {
 				sgMail
 					.send(msg)
 					.then(() => {
-						console.log('email is sent')
 						res.status(200).render('careers', { title: 'Desert Engineering', alert: true, error: false, msg: "email sent" })
 					})
 					.catch((err) => {
-						console.log(err.response.body.errors)
 						res.status(500).render('careers', { title: 'Desert Engineering', alert: true, error: true, msg: "email could not be sent" })
 					});
 			} else {
-				console.log('else block')
 				res.render('careers', { title: 'Desert Engineering', alert: false, msg: "error" })
 			}
 		});
