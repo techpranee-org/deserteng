@@ -15,7 +15,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd ~/deserteng
-          gut stash
+          git stash
           git pull origin master
           npm install
           pm2 restart deserteng
