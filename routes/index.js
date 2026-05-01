@@ -15,31 +15,30 @@ const isvalidEmail = (email) => {
 // router.use(formidable());
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'Desert Engineering' });
+	res.sendFile(path.join(__dirname, '../static/index.html'));
 });
 router.get('/contact', function (req, res, next) {
-	res.render('contact', { title: 'Desert Engineering', alert: false, error: true, msg: "email could not be sent" });
+	res.sendFile(path.join(__dirname, '../static/contact.html'));
 });
 router.get('/about', function (req, res, next) {
-	res.render('about', { title: 'Desert Engineering' });
+	res.sendFile(path.join(__dirname, '../static/about.html'));
 });
 router.get('/machines', function (req, res, next) {
-	res.render('machines', { title: 'Desert Engineering' });
+	res.sendFile(path.join(__dirname, '../static/machines.html'));
 });
 router.get('/certifications', function (req, res, next) {
-	res.render('awards', { title: 'Desert Engineering' });
+	res.sendFile(path.join(__dirname, '../static/certifications.html'));
 });
 
 router.get('/careers', function (req, res, next) {
-	res.render('careers', { title: 'Desert Engineering', alert: false, msg: "" });
+	res.sendFile(path.join(__dirname, '../static/careers.html'));
 });
 router.get('/purchase-order', function (req, res, next) {
-	res.render('purchaseorder', { title: 'Desert Engineering' });
+	res.sendFile(path.join(__dirname, '../static/purchase-order.html'));
 });
 
 router.get('/machines1', function (req, res, next) {
-	res.render('machinesP1', { mlist: MachineList });
-	// res.render('machinesP1', { title: 'Desert Engineering' });
+	res.sendFile(path.join(__dirname, '../static/machines1.html'));
 });
 
 router.post('/contactus', async (req, res, next) => {

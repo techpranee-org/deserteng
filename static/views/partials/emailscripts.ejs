@@ -1,0 +1,139 @@
+    <script type="text/javascript">
+
+      // ------function to validate contact us form-------
+      function validateContactForm() {
+        if (document.myForm.fname.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your full name!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 4000);
+          document.myForm.fname.focus();
+          return false;
+        }
+        if (document.myForm.company.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your company name!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 4000);
+          document.myForm.company.focus();
+          return false;
+        }
+       if (document.myForm.email.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your email!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 4000);
+          document.myForm.email.focus();
+          return false;
+        }
+        if (document.myForm.message.value == "") {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please provide your message!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 4000);
+          document.myForm.message.focus();
+          return false;
+        }
+        if (document.getElementById("g-recaptcha-response").value == 0 || 
+            document.getElementById("g-recaptcha-response").value == "" ) {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please Select the Captcha!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 4000);
+          document.getElementById("g-recaptcha-response").focus();
+          return false;
+        }
+        console.log('done valid')
+        return true;
+      }
+
+      // ------function to validate careers form------
+      function validateCareersForm() {
+          if (document.myForm.fname.value == "") {
+            document.getElementById("formAlert").innerHTML =
+              "<strong>Please provide your first name!</strong> ";
+            $(".alert").show();
+            setTimeout(() => {
+              $(".alert").hide();
+            }, 4000);
+            document.myForm.fname.focus();
+            return false;
+          }
+          if (document.myForm.lname.value == "") {
+            document.getElementById("formAlert").innerHTML =
+              "<strong>Please provide your last name!</strong> ";
+            $(".alert").show();
+            setTimeout(() => {
+              $(".alert").hide();
+            }, 4000);
+            document.myForm.lname.focus();
+            return false;
+          }
+          if (document.myForm.email.value == "") {
+            document.getElementById("formAlert").innerHTML =
+              "<strong>Please provide your email!</strong> ";
+            $(".alert").show();
+            setTimeout(() => {
+              $(".alert").hide();
+            }, 4000);
+            document.myForm.email.focus();
+            return false;
+          }
+          if (
+            document.myForm.phone.value == "" ||
+            isNaN(document.myForm.phone.value)
+          ) {
+            document.getElementById("formAlert").innerHTML =
+              "<strong>Please provide a contact in the format 910000000000!</strong> ";
+            $(".alert").show();
+            setTimeout(() => {
+              $(".alert").hide();
+            }, 4000);
+            document.myForm.phone.focus();
+            return false;
+          }
+          if (document.myForm.position.value == "") {
+            document.getElementById("formAlert").innerHTML =
+              "<strong>Please select the position you want to apply!</strong> ";
+            $(".alert").show();
+            setTimeout(() => {
+              $(".alert").hide();
+            }, 4000);
+            document.myForm.position.focus();
+            return false;
+          }
+          if (document.myForm.resume.value == "") {
+            document.getElementById("formAlert").innerHTML =
+              "<strong>Please attach your resume!</strong> ";
+            $(".alert").show();
+            setTimeout(() => {
+              $(".alert").hide();
+            }, 4000);
+            document.myForm.resume.focus();
+            return false;
+          }
+          if (document.getElementById("g-recaptcha-response").value == 0 || 
+            document.getElementById("g-recaptcha-response").value == "" ) {
+          document.getElementById("formAlert").innerHTML =
+            "<strong>Please Select the Captcha!</strong> ";
+          $(".alert").show();
+          setTimeout(() => {
+            $(".alert").hide();
+          }, 4000);
+          document.getElementById("g-recaptcha-response").focus();
+          return false;
+        }
+          console.log('done valid')
+          return true;
+        }
+    </script>
